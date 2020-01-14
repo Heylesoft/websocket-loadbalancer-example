@@ -1,2 +1,8 @@
 version: '3'
 services:
+  loadBalancer:
+    image: nginx
+    container_name: loadBalancer
+    ports:
+      - "80:80"
+      - "443:443"
