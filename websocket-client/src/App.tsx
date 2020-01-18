@@ -1,8 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { SocketService } from './util';
 
 const App: React.FC = () => {
+  const chat = new SocketService();
+  chat.init();
+
   return (
     <div className="App">
       <header className="App-header">
