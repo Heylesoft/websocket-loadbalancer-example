@@ -6,23 +6,32 @@ import { SocketService } from './util';
 const App: React.FC = () => {
   const chat = new SocketService();
   chat.init();
+  
+  const OnConnect = React.useCallback(()=>{
+    console.log('chat.connect()');
+    chat.connect();
+  }, [chat]);
+
+  const OnDisconnect = React.useCallback(()=>{
+    console.log('chat.disconnect()');
+    chat.disconnect();
+  }, [chat]);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-content">
+        <h1>Socket Test Client</h1>
+        <div className="App-wrapperButton">
+          <button className="App-button"
+            onClick={OnConnect}>
+            Connect
+          </button>
+          <button className="App-button"
+            onClick={OnDisconnect}>
+            Disconnect
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
