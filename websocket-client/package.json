@@ -15,7 +15,10 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
     "socket.io-client": "^2.3.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
+    "mobx-react-lite": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

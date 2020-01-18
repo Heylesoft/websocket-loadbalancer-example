@@ -1,38 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { SocketService } from './util';
+import './App.css';
+import { Context, ManagerStore } from './stores';
 
 const App: React.FC = () => {
-  const chat = new SocketService();
-  chat.init();
+  const managerStore = new ManagerStore();
+
+  const service = new SocketService();
+  service.init();
   
   const OnConnect = React.useCallback(()=>{
     console.log('chat.connect()');
-    chat.connect();
-  }, [chat]);
+    service.connect();
+  }, [service]);
 
   const OnDisconnect = React.useCallback(()=>{
     console.log('chat.disconnect()');
-    chat.disconnect();
-  }, [chat]);
+    service.disconnect();
+  }, [service]);
 
   return (
-    <div className="App">
-      <div className="App-content">
-        <h1>Socket Test Client</h1>
-        <div className="App-wrapperButton">
-          <button className="App-button"
-            onClick={OnConnect}>
-            Connect
-          </button>
-          <button className="App-button"
-            onClick={OnDisconnect}>
-            Disconnect
-          </button>
+    <Context.Provider value={managerStore}>
+      <div className="App">
+        <div className="App-content">
+          <h1>Socket Test Client</h1>
+          <div className="App-wrapperButton">
+            <button className="App-button"
+              onClick={OnConnect}>
+              Connect
+            </button>
+            <button className="App-button"
+              onClick={OnDisconnect}>
+              Disconnect
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </Context.Provider>
   );
 }
 
