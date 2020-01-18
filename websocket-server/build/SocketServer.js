@@ -19,6 +19,10 @@ class SocketServer {
         });
         this.io.on('connect', (socket) => {
             console.log('Connected client on port %s.', this.port);
+            socket.on('message', (m) => {
+                console.log('[server](message): %s', m);
+                this.io.emit('message', m);
+            });
             socket.on('disconnect', () => {
                 console.log('Client disconnected');
             });
