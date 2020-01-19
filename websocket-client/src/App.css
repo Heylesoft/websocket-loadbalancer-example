@@ -12,19 +12,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-wrapperButton {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.App-button {
-  width: 20em;
-  height: 5em;
-  margin: .5em;
-  border: 0;
-  font-weight: bold;
-  background-color: "#CCCCCC";
-}

@@ -1,0 +1,25 @@
+.SocketPage-wrapperButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.SocketPage-button {
+  width: 20em;
+  height: 5em;
+  margin: .5em;
+  border: 0;
+  font-weight: bold;
+  background-color: #CCCCCC;
+}
+
+.SocketPage-textarea {
+  width: 30em;
+  height: 20em;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 1em;
+  text-align: left;
+  padding: .3em;
+}
