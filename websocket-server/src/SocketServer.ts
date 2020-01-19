@@ -23,11 +23,11 @@ export default class SocketServer {
     this.io.on('connect', (socket: SocketIO.Socket) => {
       console.log('Connected client on port %s.', this.port);
 
-      this.io.emit('message', 'Server: Hello ' + socket.id);
+      this.io.emit('message', '> Server: Hello ' + socket.id);
 
       socket.on('message', (m: string) => {
         console.log('[server](message): %s', m);
-        this.io.emit('message', 'Client: ' + m);
+        this.io.emit('message', '> '+ socket.id +': ' + m);
       });
 
       socket.on('disconnect', () => {
