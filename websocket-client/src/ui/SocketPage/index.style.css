@@ -7,11 +7,18 @@
 
 .SocketPage-button {
   width: 20em;
-  height: 5em;
+  height: 3em;
   margin: .5em;
   border: 0;
   font-weight: bold;
   background-color: #CCCCCC;
+}
+
+.SocketPage-input {
+  height: 3em;
+  width: 35em;
+  margin: .5em;
+  box-sizing: border-box;
 }
 
 .SocketPage-textarea {
@@ -19,7 +26,13 @@
   height: 20em;
   background-color: #FFFFFF;
   color: #000000;
-  font-size: 1em;
+  
   text-align: left;
   padding: .3em;
+}
+
+.SocketPage-message {
+  font-size: 1em;
+  display: block;
+  padding: .1em;
 }

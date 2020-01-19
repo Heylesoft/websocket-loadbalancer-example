@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-import { action, computed, decorate, IObservableArray, observable } from 'mobx';
+import { action, IObservableArray, observable } from 'mobx';
 
 enum EStateSocket {
   CONNECTED,
@@ -43,7 +43,6 @@ class SocketStore {
 
   @action.bound
   public receiveMessage(data:string):void {
-    console.log('message', data);
     this.messages.push(data);
   }
 }
