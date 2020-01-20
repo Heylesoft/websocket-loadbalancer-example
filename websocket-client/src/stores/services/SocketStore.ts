@@ -16,7 +16,7 @@ class SocketStore {
   messages: IObservableArray<string> = observable([]);
 
   constructor(){
-    this.socket = io('localhost:8081', {
+    this.socket = io('172.20.10.2:9090', {
       transports: ['websocket'],
       autoConnect: false
     });
