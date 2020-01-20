@@ -1,0 +1,39 @@
+version: '3'
+services:
+  websocketServerOne:
+    container_name: websocketServerOne
+    build:
+      context: ./websocket-server
+      dockerfile: Dockerfile
+    image: node:10-alpine
+    env_file:
+     - ./websocket-server/.env
+    ports:
+      - "91:8081"
+  websocketServerTwo:
+    container_name: websocketServerTwo
+    build:
+      context: ./websocket-server
+      dockerfile: Dockerfile
+    image: node:10-alpine
+    env_file:
+     - ./websocket-server/.env
+    ports:
+      - "92:8081"
+  loadBalancerSocket:
+    image: nginx
+    container_name: loadBalancerSocket
+    volumes:
+      - ./loadBalancerSocket.nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "9090:80"
+  websocketClient:
+    container_name: websocketClient
+    build:
+      context: ./websocket-client
+      dockerfile: Dockerfile
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./websocket-client/build:/usr/share/nginx/html
